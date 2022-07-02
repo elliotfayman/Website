@@ -9,7 +9,7 @@ This is an in progress reporitory. Eventually this project will become my person
 - Resume (Not yet Built): Hyperlink to pdf of resume.
 - Contact me (Not yet Built): Methods to Contact me.
 
-### WebsiteU
+### Website
 
 
 ### Main
