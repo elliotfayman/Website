@@ -15,10 +15,12 @@ This is an in progress reporitory. Eventually this project will become my person
 
 
 ### Main
+Current plan is to have 4 button groups, each linking two different pages. On top of the button group, a rounded profile picture will be visible. Underneath the button group, symbol/buttons will link to essentail social media (i.e. github, linkedin, handshake, etc.)
 
 ### About Me
 
 ### Resume
+Contains pdf opener that reveals resume. 
 
 ### Projects
 
