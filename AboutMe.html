@@ -52,16 +52,18 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 body {
   max-width: 1920px;
   min-height: 100vh;
-
+  overscroll-behavior: none;
   place-items: center;
   font-family: var(--font-family);
   color: var(--dark-color);
   background: var(--bg-gradient);
+  padding: 10px;
 }
 
 .orb-canvas {
@@ -81,7 +83,7 @@ strong {
 .overlay {
   width: 100%;
   max-width: 1140px;
-  max-height: 640px;
+  max-height: 840px;
   padding: 8rem 6rem;
   display: flex;
   align-items: center;
@@ -197,7 +199,7 @@ strong {
 
 .slide {  
   animation: .5s ease-out 0s 1 slideInFromLeft;
-  padding: 20px;
+  padding: 10px;
 }
 </style>
 
@@ -240,7 +242,7 @@ strong {
   </header>
 
 </div>
-
+<br>
 <!-- Canvas -->
 <canvas class="orb-canvas"></canvas>
 <!-- Overlay -->
@@ -255,6 +257,15 @@ strong {
 	<br>
     <p class="overlay__description">
       <strong>Hi there <span class="waving-hand">👋</span>  </strong>
+	  <br><br>
+	  I am Elliot Fayman, a college student pursuing a bachelor's degree 
+	  in Computer Science at California State University - Northridge. 
+	  While I do not have any particular focus, I am interested in web 
+	  development and machine learning. I have a passion for learning and 
+	  more than anything, constantly strive for continuous growth and 
+	  development. 
+	  <br><br><br>
+	  <strong>Hi there <span class="waving-hand">👋</span>  </strong>
 	  <br><br>
 	  I am Elliot Fayman, a college student pursuing a bachelor's degree 
 	  in Computer Science at California State University - Northridge. 
