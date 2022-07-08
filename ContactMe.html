@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -8,17 +7,12 @@
   <meta charset="UTF-8">
   
 <link rel="apple-touch-icon" type="image/png" href="favicon.ico" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
 
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
   <title>Elliot Fayman</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -121,40 +115,6 @@ strong {
 
 
 
-
-
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(16deg);
-  }
-  20% {
-    transform: rotate(-6deg);
-  }
-  30% {
-    transform: rotate(16deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(16deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.waving-hand {
-  animation: wave 2.1s 0.6s infinite;
-  transform-origin: 75% 75%;
-  display: inline-block;
-}
-
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -168,6 +128,7 @@ strong {
   animation: .5s ease-out 0s 1 slideInFromLeft;
   padding: 10px;
 }
+
 #contact {
   width: 100%;
   height: 100%;
@@ -188,7 +149,7 @@ strong {
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 20px;
+  padding: 5px;
   position: relative;
   max-width: 840px;
 }
@@ -337,12 +298,6 @@ textarea {
   color: #000;
 }
 
-.copyright {
-  font: 200 14px 'Oswald', sans-serif;
-  color: #555;
-  letter-spacing: 1px;
-  text-align: center;
-}
 
 hr {
   border-color: rgba(255,255,255,.6);
@@ -434,9 +389,7 @@ hr {
 </head>
 
 <body translate="no" >
-  <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
+
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div class=slide>
@@ -502,58 +455,38 @@ hr {
     </form>
     
   <!-- Left contact page --> 
-    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <div class="direct-contact-container">
 
         <ul class="contact-list">
-          <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">City, State</span></i></li>
+          <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Porter Ranch, Ca</span></i></li>
           
-          <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
           
-          <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">hitmeup@gmail.com</a></span></i></li>
+          <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:elliotfayman@gmail.com" title="Send me an email">elliofayman@gmail.com</a></span></i></li>
           
         </ul>
-
         <hr>
         <ul class="social-media-list">
-          <li><a href="#" target="_blank" class="contact-icon">
+          <a href="https://github.com/elliotfayman" target="_blank" class="contact-icon">
             <i class="fa fa-github" aria-hidden="true"></i></a>
-          </li>
-          <li><a href="#" target="_blank" class="contact-icon">
-            <i class="fa fa-codepen" aria-hidden="true"></i></a>
-          </li>
-          <li><a href="#" target="_blank" class="contact-icon">
-            <i class="fa fa-twitter" aria-hidden="true"></i></a>
-          </li>
-          <li><a href="#" target="_blank" class="contact-icon">
+          
+          <a href="https://www.linkedin.com/in/elliot-fayman-5974a2202/" target="_blank" class="contact-icon">
+            <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          
+          <a href="#" target="_blank" class="contact-icon">
             <i class="fa fa-instagram" aria-hidden="true"></i></a>
-          </li>       
+                 
         </ul>
       </div>
     
   </div>
   
 </section>  
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
-
-      <script id="rendered-js" >
-document.querySelector('#contact-form').addEventListener('submit', e => {
-  e.preventDefault();
-  e.target.elements.name.value = '';
-  e.target.elements.email.value = '';
-  e.target.elements.message.value = '';
-});
-//# sourceURL=pen.js
-    </script>
-  
-    
   </div>
    
 </div>
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-  
+		
       <script id="rendered-js" type="module">
 import * as PIXI from "https://cdn.skypack.dev/pixi.js";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
