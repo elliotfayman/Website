@@ -81,7 +81,7 @@ strong {
 .overlay {
   width: 100%;
   max-width: 1140px;
-  max-height: 840px;
+  max-height: 1140px;
   padding: 8rem 6rem;
   display: flex;
   align-items: center;
@@ -186,6 +186,89 @@ strong {
   display: inline-block;
 }
 
+@keyframes fly {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  10% {
+    transform: translateX(1px) translateY(-1px) rotate(1deg);
+  }
+  20% {
+    transform: translateX(2px) translateY(-2px) rotate(2deg);
+  }
+  30% {
+    transform: translateX(2px) translateY(-2px) rotate(2deg);
+  }
+  40% {
+    transform: translateX(1px) translateY(-1px) rotate(1deg);
+  }
+  50% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  60% {
+    transform: translateX(-1px) translateY(1px) rotate(-1deg);
+	}
+  70% {
+	transform: translateX(-2px) translateY(2px) rotate(-2deg);
+  }
+  80% {
+    transform: translateX(-2px) translateY(2px) rotate(-2deg);
+  }
+  90% {
+    transform: translateX(-1px) translateY(1px) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+}
+.rocket-ship {
+  animation: fly 2.1s 0.6s infinite;
+  transform-origin: 75% 75%;
+  display: inline-block;
+}
+
+@keyframes computer {
+  0% {
+    transform: scale(1.0);
+  }
+  10% {
+    transform: scale(1.02);
+  }
+  20% {
+    transform: scale(1.04);
+  }
+  30% {
+    transform: scale(1.04);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+  60% {
+    transform: scale(0.98);
+	}
+  70% {
+	transform: scale(0.96);
+  }
+  80% {
+    transform: scale(0.96);
+  }
+  90% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+.computer-skill {
+  animation: computer 2.1s 0.6s infinite;
+  transform-origin: 75% 75%;
+  display: inline-block;
+}
+
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -263,7 +346,27 @@ strong {
 	  more than anything, constantly strive for continuous growth and 
 	  development. 
 	  <br><br><br>
-	  <strong>Hi there <span class="waving-hand">👋</span>  </strong>
+	  <strong>My Achievements <span class="rocket-ship">🚀</span>  </strong>
+	  <br><br>
+	  I am Elliot Fayman, a college student pursuing a bachelor's degree 
+	  in Computer Science at California State University - Northridge. 
+	  While I do not have any particular focus, I am interested in web 
+	  development and machine learning. I have a passion for learning and 
+	  more than anything, constantly strive for continuous growth and 
+	  development. 
+    </p>
+	<br>
+	<strong>Acquired Skills <span class="computer-skill">💻</span>  </strong>
+	  <br><br>
+	  I am Elliot Fayman, a college student pursuing a bachelor's degree 
+	  in Computer Science at California State University - Northridge. 
+	  While I do not have any particular focus, I am interested in web 
+	  development and machine learning. I have a passion for learning and 
+	  more than anything, constantly strive for continuous growth and 
+	  development. 
+    </p>
+	<br><br>
+	<strong>Check this Out <span class="rocket-ship">🎉</span>  </strong>
 	  <br><br>
 	  I am Elliot Fayman, a college student pursuing a bachelor's degree 
 	  in Computer Science at California State University - Northridge. 
