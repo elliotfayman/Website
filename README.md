@@ -19,6 +19,7 @@ Current plan is to use main page to reflect key information (i.e. key charecteri
 Outdated: Current plan is to have 4 button groups, each linking two different pages. On top of the button group, a rounded profile picture will be visible. Underneath the button group, symbol/buttons will link to essentail social media (i.e. github, linkedin, handshake, etc. also might add additional animations)
 
 ### About Me
+Three sections containing essentail information. In last section, buttons with links to other pages will appear. 
 
 ### Resume
 Contains pdf opener that reveals resume. 
@@ -26,3 +27,4 @@ Contains pdf opener that reveals resume.
 ### Projects
 
 ### Contact Me
+Form that users can use to reach a user directly via email. To achieve this, GetForm was implimented.
