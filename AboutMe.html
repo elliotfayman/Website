@@ -277,6 +277,39 @@ strong {
   }
 }
 
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-16deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-16deg);
+  }
+  40% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-16deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.confeti-pop {
+  animation: wave 2.1s 0.6s infinite;
+  transform-origin: 75% 75%;
+  display: inline-block;
+}
+
+
 .slide {  
   animation: .5s ease-out 0s 1 slideInFromLeft;
   padding: 10px;
@@ -415,7 +448,7 @@ strong {
 	  <a href="https://git-scm.com/"><span class="iconify-inline" data-icon="bi:git" style="color: #f05032;" data-width="50" data-height="50"></span></a>
 	</p>
 	<br>
-	<strong>Check this Out <span>🎉</span>  </strong> <br><br>
+	<strong>Check this Out <span class="confeti-pop">🎉</span>  </strong> <br><br>
 	
 	<button class="button-18" role="button">Check Out my Projects</button> &nbsp;&nbsp;
 	<button class="button-18" role="button">See my Resume</button> &nbsp;&nbsp;
