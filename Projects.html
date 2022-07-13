@@ -121,7 +121,16 @@ strong {
 }
 
 
-.slide {  
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideTaber {  
   animation: .5s ease-out 0s 1 slideInFromLeft;
   padding: 10px;
 }
@@ -150,7 +159,7 @@ strong {
 </head>
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
-    <div class=slide>
+    <div class=slideTaber>
       <h3 class="float-md-start mb-0">Elliot Fayman</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="Main.html">Home</a>
@@ -166,9 +175,8 @@ strong {
       </nav>
     </div>
   </header>
-
-</div>
 <br>
+</div>
 <!-- Canvas -->
 <canvas class="orb-canvas"></canvas>
 <!-- Overlay -->
