@@ -29,4 +29,4 @@ Contains pdf opener that reveals resume.
 ### Projects
 
 ### Contact Me
-Form that users can use to reach a user directly via email. To achieve this, GetForm was implimented.
+Form that users can use to reach a user directly via email or other forms such as linkedin or github. To achieve this, GetForm was implimented. 
