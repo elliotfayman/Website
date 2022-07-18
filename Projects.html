@@ -304,7 +304,7 @@ strong {
 	  <br><br>
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
-				<h5 class="card-title">Cubesat ADCS</h5>
+				<h5 class="card-title">Electro Adhesion Cubesat ADCS</h5>
 				<p class="card-text"> Created a C based Low pass filter and PID controller in order to precisly determine and controll the orientation of a satilite. </p>
 				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ADCS">Learn more</button>
 				<!-- Modal -->
@@ -316,10 +316,17 @@ strong {
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								  </div>
 								  <div class="modal-body">
-									SAAS or the Student Access and Accommodation System is an app used 
-									by the Disability lol and Educational Services (DRES). This app
-									is primaraly responsible for allocating resources from the DRES department
-									to CSUN students that require special accomodations.  
+									The electroadhesion cube satilite is tiny satelite with the purpose of collecting small
+									debris located in and around low earth orbit. This cube satilite recieved funding from NASA
+									through the NASA Minds compitition. The ADCS subsystem is a sub unit of the satelite responsible
+									for detecting and controlling the orientation of the satelite. To determine the orientation of the 
+									satelite, a arduino uno in combination with a mpu 6050 was used which posseses a gyroscope. To attinuate
+									high frequency noise that is inherent with the mpu 6050's gyroscope, a C based butterworth low pass filter
+									is used. To control the direction the satilite is pointed, a reaction wheel is used. The reaction wheel
+									motor is a small brushless motor with a integrated halonomic sensor and speed controller. Precise speed control
+									is achieved with a nested PID C based control loop: One coupled with the halonomic sensor to control the 
+									speed of the inertia wheel and another coupled with the mpu 6050 to control the rotational velocity of the 
+									entire cube satelite. 
 								  </div>
 								  <div class="modal-footer">
 									<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
