@@ -1,761 +1,704 @@
-
 <!DOCTYPE html>
 <html lang="en" >
-
-<head>
-
-  <meta charset="UTF-8">
-  
-<link rel="apple-touch-icon" type="image/png" href="favicon.ico" />
-
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-  <title>Elliot Fayman</title>
-<link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<style>
-:root {
-  --dark-color: hsl(var(--hue), 100%, 9%);
-  --light-color: hsl(var(--hue), 95%, 98%);
-  --base: hsl(var(--hue), 95%, 50%);
-  --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%);
-  --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%);
-
-  --font-family: "Poppins", system-ui;
-
-  --bg-gradient: linear-gradient(
-    to bottom,
-    hsl(var(--hue), 95%, 99%),
-    hsl(var(--hue), 95%, 84%)
-  );
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-}
-
-body {
-  max-width: 1920px;
-  min-height: 100vh;
-  overscroll-behavior: none;
-  place-items: center;
-  font-family: var(--font-family);
-  color: var(--dark-color);
-  background: var(--bg-gradient);
-  padding: 10px;
-}
-
-.orb-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-strong {
-  font-weight: 600;
-}
-
-.overlay {
-  width: 100%;
-  max-width: 1140px;
-  max-height: 590px;
-  padding: 8rem 6rem;
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.375);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-.overlay__inner {
-  max-width: 36rem;
-}
-
-.overlay__title {
-  font-size: 1.875rem;
-  line-height: 2.75rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  margin-bottom: 2rem;
-}
-
-.text-gradient {
-  background-image: linear-gradient(
-    45deg,
-    var(--base) 25%,
-    var(--complimentary2)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-}
-
-.overlay__description {
-  font-size: 1rem;
-  line-height: 1.75rem;
-  margin-bottom: 3rem;
-}
-
-
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.slide {  
-  animation: .5s ease-out 0s 1 slideInFromLeft;
-  padding: 10px;
-}
-
-#contact {
-  width: 100%;
-  height: 100%;
-}
-
-.section-header {
-  text-align: center;
-  margin: 0 auto;
-  padding: 40px 0;
-  font: 300 60px 'Oswald', sans-serif;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-}
-
-.contact-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 5px;
-  position: relative;
-  max-width: 840px;
-}
-
-/* Left contact page */
-.form-horizontal {
-  /*float: left;*/
-  max-width: 400px;
-  font-family: 'Lato';
-  font-weight: 400;
-}
-
-.form-control, 
-textarea {
-  max-width: 400px;
-  background-color: #fef1f3;
-  color: #fff;
-  letter-spacing: 1px;
-}
-
-.send-button {
-  margin-top: 15px;
-  height: 34px;
-  width: 400px;
-  overflow: hidden;
-  transition: all .2s ease-in-out;
-}
-
-.alt-send-button {
-  width: 400px;
-  height: 34px;
-  transition: all .2s ease-in-out;
-}
-
-.send-text {
-  display: block;
-  margin-top: 10px;
-  font: 700 12px 'Lato', sans-serif;
-  letter-spacing: 2px;
-}
-
-.alt-send-button:hover {
-  transform: translate3d(0px, -29px, 0px);
-}
-
-/* Begin Right Contact Page */
-.direct-contact-container {
-  max-width: 400px;
-}
-
-/* Location, Phone, Email Section */
-.contact-list {
-  list-style-type: none;
-  margin-left: -15px;
-  padding-right: 20px;
-}
-
-.list-item {
-  line-height: 4;
-  color: #d66a55;
-}
-
-.contact-text {
-  font: 300 18px 'Lato', sans-serif;
-  letter-spacing: 1.9px;
-  color: #d66a55;
-}
-
-.place {
-  margin-left: 67px;
-}
-
-.phone {
-  margin-left: 56px;
-}
-
-.gmail {
-  margin-left: 53px;
-}
-
-.contact-text a {
-  color: #d66a55;
-  text-decoration: none;
-  transition-duration: 0.2s;
-}
-
-.contact-text a:hover {
-  color: #d66a55;;
-  text-decoration: none;
-}
-
-
-/* Social Media Icons */
-.social-media-list {
-  position: relative;
-  font-size: 22px;
-  text-align: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.social-media-list li a {
-  color: #d66a55;
-}
-
-.social-media-list li {
-  position: relative; 
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  margin: 10px 3px;
-  line-height: 60px;
-  border-radius: 50%;
-  color: #d66a55;
-  background-color: #d66a55;;
-  cursor: pointer; 
-  transition: all .2s ease-in-out;
-}
-
-.social-media-list li:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  opacity: 0;
-  box-shadow: 0 0 0 1px #d66a55;
-  transition: all .2s ease-in-out;
-}
-
-.social-media-list li:hover {
-  background-color: #d66a55; 
-}
-
-.social-media-list li:hover:after {
-  opacity: 1;  
-  transform: scale(1.12);
-  transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
-}
-
-.social-media-list li:hover a {
-  color: #d66a55;
-}
-
-
-hr {
-  border-color: rgba(255,255,255,.6);
-}
-
-/* Begin Media Queries*/
-@media screen and (max-width: 850px) {
-  .contact-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .direct-contact-container, .form-horizontal {
-    margin: 0 auto;
-  }  
-  
-  .direct-contact-container {
-    margin-top: 60px;
-    max-width: 300px;
-  }    
-  .social-media-list li {
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-  }
-  .social-media-list li:after {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
-}
-
-@media screen and (max-width: 569px) {
-
-  .direct-contact-container, .form-wrapper {
-    float: none;
-    margin: 0 auto;
-  }  
-  .form-control, textarea {
-    
-    margin: 0 auto;
-  }
- 
-  
-  .name, .email, textarea {
-    width: 280px;
-  } 
-  
-  .direct-contact-container {
-    margin-top: 60px;
-    max-width: 280px;
-  }  
-  .social-media-list {
-    left: 0;
-  }
-  .social-media-list li {
-    height: 55px;
-    width: 55px;
-    line-height: 55px;
-    font-size: 2rem;
-  }
-  .social-media-list li:after {
-    width: 55px;
-    height: 55px;
-    line-height: 55px;
-  }
-  
-}
-
-@media screen and (max-width: 410px) {
-  .send-button {
-    width: 99%;
-  }
-  
-}
-
-
-
-/* Set a specific color for each brand */
-.fa:hover {
-  opacity: 0.7;
-}
-/* Facebook */
-.fa-linkedin {
-  background: #007bb5;
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-}
-
-.fa-instagram {
-  background: #E1306C;
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-}
-
-.fa-github {
-  background: #000;
-  padding: 10px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-}
-
-</style>
-
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
-  
-  
-  <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
-
-
-</head>
-
-<body translate="no" >
-
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div class=slide>
-      <h3 class="float-md-start mb-0">Elliot Fayman</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="Main.html">Home</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="nav-link fw-bold py-1 px-0" href="AboutMe.html">About Me</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="nav-link fw-bold py-1 px-0" href="Projects.html">Projects</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="nav-link fw-bold py-1 px-0" href="Resume.html">Resume</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="nav-link fw-bold py-1 px-0" href="ContactMe.html">Contact Me</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </nav>
-    </div>
-  </header>
-
-</div>
-<br>
-<!-- Canvas -->
-<canvas class="orb-canvas"></canvas>
-<!-- Overlay -->
-<div class="overlay">
-  <!-- Overlay inner wrapper -->
-  <div class="overlay__inner">
-    <!-- Title -->
-    <h1 class="overlay__title">
-      <span class="text-gradient">Contact Me</span>
-    </h1>
-    <!-- Description -->
-	<br>
-	<section id="contact">
-  
-  <div class="contact-wrapper">
-  
-  <!-- Left contact page --> 
-    
-    <form id="contact-form" class="form-horizontal" role="form" action="https://getform.io/f/5bbd8dd0-183f-480a-8dd6-83f996c41a0a" method="POST" enctype="multipart/form-data">
-       
-      <div class="form-group">
-        <div class="col-sm-12">
-          <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-12">
-          <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
-        </div>
-      </div>
-
-      <textarea class="form-control" id="text" rows="10" placeholder="MESSAGE" name="message" required></textarea>
-      
-      <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-        <div class="alt-send-button">
-          <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
-        </div>
-      
-      </button>
-      
-    </form>
-    
-  <!-- Left contact page --> 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="direct-contact-container">
-
-        <ul class="contact-list">
-          <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Porter Ranch, Ca</span></i></li>
-          
-          
-          <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:elliotfayman@gmail.com" title="Send me an email">elliofayman@gmail.com</a></span></i></li>
-          
-        </ul>
-        <hr>
-        <ul class="social-media-list">
-          <a href="https://github.com/elliotfayman" target="_blank" class="contact-icon">
-            <i class="fa fa-github" aria-hidden="true"></i></a>
-          
-          <a href="https://www.linkedin.com/in/elliot-fayman-5974a2202/" target="_blank" class="contact-icon">
-            <i class="fa fa-linkedin" aria-hidden="true"></i></a>
-          
-          <a href="https://www.instagram.com/elliot.f1/" target="_blank" class="contact-icon">
-            <i class="fa fa-instagram" aria-hidden="true"></i></a>
-                 
-        </ul>
-      </div>
-    
-  </div>
-  
-</section>  
-
-  </div>
-   
-</div>
-		    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-      <script id="rendered-js" type="module">
-import * as PIXI from "https://cdn.skypack.dev/pixi.js";
-import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
-import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
-import hsl from "https://cdn.skypack.dev/hsl-to-hex";
-import debounce from "https://cdn.skypack.dev/debounce";
-
-// return a random number within a range
-function random(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-// map a number from 1 range to another
-function map(n, start1, end1, start2, end2) {
-  return (n - start1) / (end1 - start1) * (end2 - start2) + start2;
-}
-
-// Create a new simplex noise instance
-const simplex = new SimplexNoise();
-
-// ColorPalette class
-class ColorPalette {
-  constructor() {
-    this.setColors();
-    this.setCustomProperties();
-  }
-
-  setColors() {
-    // pick a random hue somewhere between 220 and 360
-    this.hue = ~~random(220, 360);
-    this.complimentaryHue1 = this.hue + 30;
-    this.complimentaryHue2 = this.hue + 60;
-    // define a fixed saturation and lightness
-    this.saturation = 95;
-    this.lightness = 50;
-
-    // define a base color
-    this.baseColor = hsl(this.hue, this.saturation, this.lightness);
-    // define a complimentary color, 30 degress away from the base
-    this.complimentaryColor1 = hsl(
-    this.complimentaryHue1,
-    this.saturation,
-    this.lightness);
-
-    // define a second complimentary color, 60 degrees away from the base
-    this.complimentaryColor2 = hsl(
-    this.complimentaryHue2,
-    this.saturation,
-    this.lightness);
-
-
-    // store the color choices in an array so that a random one can be picked later
-    this.colorChoices = [
-    this.baseColor,
-    this.complimentaryColor1,
-    this.complimentaryColor2];
-
-  }
-
-  randomColor() {
-    // pick a random color
-    return this.colorChoices[~~random(0, this.colorChoices.length)].replace(
-    "#",
-    "0x");
-
-  }
-
-  setCustomProperties() {
-    // set CSS custom properties so that the colors defined here can be used throughout the UI
-    document.documentElement.style.setProperty("--hue", this.hue);
-    document.documentElement.style.setProperty(
-    "--hue-complimentary1",
-    this.complimentaryHue1);
-
-    document.documentElement.style.setProperty(
-    "--hue-complimentary2",
-    this.complimentaryHue2);
-
-  }}
-
-
-// Orb class
-class Orb {
-  // Pixi takes hex colors as hexidecimal literals (0x rather than a string with '#')
-  constructor(fill = 0x000000) {
-    // bounds = the area an orb is "allowed" to move within
-    this.bounds = this.setBounds();
-    // initialise the orb's { x, y } values to a random point within it's bounds
-    this.x = random(this.bounds["x"].min, this.bounds["x"].max);
-    this.y = random(this.bounds["y"].min, this.bounds["y"].max);
-
-    // how large the orb is vs it's original radius (this will modulate over time)
-    this.scale = 1;
-
-    // what color is the orb?
-    this.fill = fill;
-
-    // the original radius of the orb, set relative to window height
-    this.radius = random(window.innerHeight / 6, window.innerHeight / 3);
-
-    // starting points in "time" for the noise/self similar random values
-    this.xOff = random(0, 1000);
-    this.yOff = random(0, 1000);
-    // how quickly the noise/self similar random values step through time
-    this.inc = 0.002;
-
-    // PIXI.Graphics is used to draw 2d primitives (in this case a circle) to the canvas
-    this.graphics = new PIXI.Graphics();
-    this.graphics.alpha = 0.825;
-
-    // 250ms after the last window resize event, recalculate orb positions.
-    window.addEventListener(
-    "resize",
-    debounce(() => {
-      this.bounds = this.setBounds();
-    }, 250));
-
-  }
-
-  setBounds() {
-    // how far from the { x, y } origin can each orb move
-    const maxDist =
-    window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
-    // the { x, y } origin for each orb (the bottom right of the screen)
-    const originX = window.innerWidth / 1.25;
-    const originY =
-    window.innerWidth < 1000 ?
-    window.innerHeight :
-    window.innerHeight / 1.375;
-
-    // allow each orb to move x distance away from it's x / y origin
-    return {
-      x: {
-        min: originX - maxDist,
-        max: originX + maxDist },
-
-      y: {
-        min: originY - maxDist,
-        max: originY + maxDist } };
-
-
-  }
-
-  update() {
-    // self similar "psuedo-random" or noise values at a given point in "time"
-    const xNoise = simplex.noise2D(this.xOff, this.xOff);
-    const yNoise = simplex.noise2D(this.yOff, this.yOff);
-    const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
-
-    // map the xNoise/yNoise values (between -1 and 1) to a point within the orb's bounds
-    this.x = map(xNoise, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
-    this.y = map(yNoise, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
-    // map scaleNoise (between -1 and 1) to a scale value somewhere between half of the orb's original size, and 100% of it's original size
-    this.scale = map(scaleNoise, -1, 1, 0.5, 1);
-
-    // step through "time"
-    this.xOff += this.inc;
-    this.yOff += this.inc;
-  }
-
-  render() {
-    // update the PIXI.Graphics position and scale values
-    this.graphics.x = this.x;
-    this.graphics.y = this.y;
-    this.graphics.scale.set(this.scale);
-
-    // clear anything currently drawn to graphics
-    this.graphics.clear();
-
-    // tell graphics to fill any shapes drawn after this with the orb's fill color
-    this.graphics.beginFill(this.fill);
-    // draw a circle at { 0, 0 } with it's size set by this.radius
-    this.graphics.drawCircle(0, 0, this.radius);
-    // let graphics know we won't be filling in any more shapes
-    this.graphics.endFill();
-  }}
-
-
-// Create PixiJS app
-const app = new PIXI.Application({
-  // render to <canvas class="orb-canvas"></canvas>
-  view: document.querySelector(".orb-canvas"),
-  // auto adjust size to fit the current window
-  resizeTo: window,
-  // transparent background, we will be creating a gradient background later using CSS
-  transparent: true });
-
-
-// Create colour palette
-const colorPalette = new ColorPalette();
-
-app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
-
-// Create orbs
-const orbs = [];
-
-for (let i = 0; i < 10; i++) {if (window.CP.shouldStopExecution(0)) break;
-  const orb = new Orb(colorPalette.randomColor());
-
-  app.stage.addChild(orb.graphics);
-
-  orbs.push(orb);
-}
-
-// Animate!
-window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  app.ticker.add(() => {
-    orbs.forEach(orb => {
-      orb.update();
-      orb.render();
-    });
-  });
-} else {
-  orbs.forEach(orb => {
-    orb.update();
-    orb.render();
-  });
-}
-//# sourceURL=pen.js
-    </script>
-
-  
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		
+		<title>Elliot Fayman</title>
+
+		<link rel="apple-touch-icon" type="image/png" href="favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+			
+		<style>
+			:root {
+			  --dark-color: hsl(var(--hue), 100%, 9%);
+			  --light-color: hsl(var(--hue), 95%, 98%);
+			  --base: hsl(var(--hue), 95%, 50%);
+			  --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%);
+			  --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%);
+
+			  --font-family: "Poppins", system-ui;
+
+			  --bg-gradient: linear-gradient(
+				to bottom,
+				hsl(var(--hue), 95%, 99%),
+				hsl(var(--hue), 95%, 84%)
+			  );
+			}
+
+			* {
+			  margin: 0;
+			  padding: 0;
+			  box-sizing: border-box;
+			}
+
+			html {
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+
+			}
+
+			body {
+			  max-width: 1920px;
+			  min-height: 100vh;
+			  overscroll-behavior: none;
+			  place-items: center;
+			  font-family: var(--font-family);
+			  color: var(--dark-color);
+			  background: var(--bg-gradient);
+			  padding: 10px;
+			}
+
+			.orb-canvas {
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  pointer-events: none;
+			  z-index: -1;
+			}
+
+			strong {
+			  font-weight: 600;
+			}
+
+			.overlay {
+			  width: 100%;
+			  max-width: 1140px;
+			  max-height: 590px;
+			  padding: 8rem 6rem;
+			  display: flex;
+			  align-items: center;
+			  background: rgba(255, 255, 255, 0.375);
+			  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+			  border-radius: 2rem;
+			  border: 1px solid rgba(255, 255, 255, 0.125);
+			}
+
+			.overlay__inner {
+			  max-width: 36rem;
+			}
+
+			.overlay__title {
+			  font-size: 1.875rem;
+			  line-height: 2.75rem;
+			  font-weight: 700;
+			  letter-spacing: -0.025em;
+			  margin-bottom: 2rem;
+			}
+
+			.text-gradient {
+			  background-image: linear-gradient(
+				45deg,
+				var(--base) 25%,
+				var(--complimentary2)
+			  );
+			  -webkit-background-clip: text;
+			  -webkit-text-fill-color: transparent;
+			  -moz-background-clip: text;
+			  -moz-text-fill-color: transparent;
+			}
+
+			.overlay__description {
+			  font-size: 1rem;
+			  line-height: 1.75rem;
+			  margin-bottom: 3rem;
+			}
+
+			@keyframes slideInFromLeft {
+			  0% {
+				transform: translateX(-100%);
+			  }
+			  100% {
+				transform: translateX(0);
+			  }
+			}
+
+			.slide {  
+			  animation: .5s ease-out 0s 1 slideInFromLeft;
+			  padding: 10px;
+			}
+
+			#contact {
+			  width: 100%;
+			  height: 100%;
+			}
+			
+			.section-header {
+			  text-align: center;
+			  margin: 0 auto;
+			  padding: 40px 0;
+			  font: 300 60px 'Oswald', sans-serif;
+			  color: #fff;
+			  text-transform: uppercase;
+			  letter-spacing: 6px;
+			}
+
+			.contact-wrapper {
+			  display: flex;
+			  flex-direction: row;
+			  justify-content: space-between;
+			  margin: 0 auto;
+			  padding: 5px;
+			  position: relative;
+			  max-width: 840px;
+			}
+
+			.form-horizontal {
+			  /*float: left;*/
+			  max-width: 400px;
+			  font-family: 'Lato';
+			  font-weight: 400;
+			}
+
+			.form-control, 
+			textarea {
+			  max-width: 400px;
+			  background-color: #fef1f3;
+			  color: #fff;
+			  letter-spacing: 1px;
+			}
+
+			.send-button {
+			  margin-top: 15px;
+			  height: 34px;
+			  width: 400px;
+			  overflow: hidden;
+			  transition: all .2s ease-in-out;
+			}
+
+			.alt-send-button {
+			  width: 400px;
+			  height: 34px;
+			  transition: all .2s ease-in-out;
+			}
+
+			.send-text {
+			  display: block;
+			  margin-top: 10px;
+			  font: 700 12px 'Lato', sans-serif;
+			  letter-spacing: 2px;
+			}
+
+			.alt-send-button:hover {
+			  transform: translate3d(0px, -29px, 0px);
+			}
+
+			.direct-contact-container {
+			  max-width: 400px;
+			}
+
+			.contact-list {
+			  list-style-type: none;
+			  margin-left: -15px;
+			  padding-right: 20px;
+			}
+
+			.list-item {
+			  line-height: 4;
+			  color: #d66a55;
+			}
+
+			.contact-text {
+			  font: 300 18px 'Lato', sans-serif;
+			  letter-spacing: 1.9px;
+			  color: #d66a55;
+			}
+
+			.place {
+			  margin-left: 67px;
+			}
+
+			.phone {
+			  margin-left: 56px;
+			}
+
+			.gmail {
+			  margin-left: 53px;
+			}
+
+			.contact-text a {
+			  color: #d66a55;
+			  text-decoration: none;
+			  transition-duration: 0.2s;
+			}
+
+			.contact-text a:hover {
+			  color: #d66a55;;
+			  text-decoration: none;
+			}
+
+			.social-media-list {
+			  position: relative;
+			  font-size: 22px;
+			  text-align: center;
+			  width: 100%;
+			  margin: 0 auto;
+			  padding: 0;
+			}
+
+			.social-media-list li a {
+			  color: #d66a55;
+			}
+
+			.social-media-list li {
+			  position: relative; 
+			  display: inline-block;
+			  height: 60px;
+			  width: 60px;
+			  margin: 10px 3px;
+			  line-height: 60px;
+			  border-radius: 50%;
+			  color: #d66a55;
+			  background-color: #d66a55;;
+			  cursor: pointer; 
+			  transition: all .2s ease-in-out;
+			}
+
+			.social-media-list li:after {
+			  content: '';
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 60px;
+			  height: 60px;
+			  line-height: 60px;
+			  border-radius: 50%;
+			  opacity: 0;
+			  box-shadow: 0 0 0 1px #d66a55;
+			  transition: all .2s ease-in-out;
+			}
+
+			.social-media-list li:hover {
+			  background-color: #d66a55; 
+			}
+
+			.social-media-list li:hover:after {
+			  opacity: 1;  
+			  transform: scale(1.12);
+			  transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+			}
+
+			.social-media-list li:hover a {
+			  color: #d66a55;
+			}
+
+			hr {
+			  border-color: rgba(255,255,255,.6);
+			}
+
+			@media screen and (max-width: 850px) {
+			  .contact-wrapper {
+				display: flex;
+				flex-direction: column;
+			  }
+			  .direct-contact-container, .form-horizontal {
+				margin: 0 auto;
+			  }  
+			  
+			  .direct-contact-container {
+				margin-top: 60px;
+				max-width: 300px;
+			  }    
+			  
+			  .social-media-list li {
+				height: 60px;
+				width: 60px;
+				line-height: 60px;
+			  }
+			  
+			  .social-media-list li:after {
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+			  }
+			}
+
+			@media screen and (max-width: 569px) {
+
+			  .direct-contact-container, .form-wrapper {
+				float: none;
+				margin: 0 auto;
+			  }  
+			  .form-control, textarea {
+				
+				margin: 0 auto;
+			  }
+			 
+			  .name, .email, textarea {
+				width: 280px;
+			  } 
+			  
+			  .direct-contact-container {
+				margin-top: 60px;
+				max-width: 280px;
+			  }  
+			  
+			  .social-media-list {
+				left: 0;
+			  }
+			  
+			  .social-media-list li {
+				height: 55px;
+				width: 55px;
+				line-height: 55px;
+				font-size: 2rem;
+			  }
+			  
+			  .social-media-list li:after {
+				width: 55px;
+				height: 55px;
+				line-height: 55px;
+			  }
+			}
+			
+			@media screen and (max-width: 410px) {
+			  .send-button {
+				width: 99%;
+			  }
+			}
+
+			.fa:hover {
+			  opacity: 0.7;
+			}
+
+			.fa-linkedin {
+			  background: #007bb5;
+			  padding: 10px;
+			  font-size: 30px;
+			  width: 50px;
+			  text-align: center;
+			  text-decoration: none;
+			  border-radius: 50%;
+			  color: white;
+			}
+
+			.fa-instagram {
+			  background: #E1306C;
+			  padding: 10px;
+			  font-size: 30px;
+			  width: 50px;
+			  text-align: center;
+			  text-decoration: none;
+			  border-radius: 50%;
+			  color: white;
+			}
+
+			.fa-github {
+			  background: #000;
+			  padding: 10px;
+			  font-size: 30px;
+			  width: 50px;
+			  text-align: center;
+			  text-decoration: none;
+			  border-radius: 50%;
+			  color: white;
+			}
+		</style>
+
+		<script> window.console = window.console || function(t) {}; </script>
+		<script>
+		  if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		  }
+		</script>
+	</head>
+
+	<body translate="no" >
+
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		  <header class="mb-auto">
+			<div class=slide>
+			  <h3 class="float-md-start mb-0">Elliot Fayman</h3>
+			  <nav class="nav nav-masthead justify-content-center float-md-end">
+				<a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="Main.html">Home</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="nav-link fw-bold py-1 px-0" href="AboutMe.html">About Me</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="nav-link fw-bold py-1 px-0" href="Projects.html">Projects</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="nav-link fw-bold py-1 px-0" href="Resume.html">Resume</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="nav-link fw-bold py-1 px-0" href="ContactMe.html">Contact Me</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  </nav>
+			</div>
+		  </header>
+		</div>
+		<br>
+		<canvas class="orb-canvas"></canvas>
+		<div class="overlay">
+		  <div class="overlay__inner">
+			<h1 class="overlay__title">
+			  <span class="text-gradient">Contact Me</span>
+			</h1>
+			<br>
+			<section id="contact">
+			<div class="contact-wrapper"> 
+			<form id="contact-form" class="form-horizontal" role="form" action="https://getform.io/f/5bbd8dd0-183f-480a-8dd6-83f996c41a0a" method="POST" enctype="multipart/form-data">
+			  <div class="form-group">
+				<div class="col-sm-12">
+				  <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<div class="col-sm-12">
+				  <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+				</div>
+			  </div>
+			  <textarea class="form-control" id="text" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+			  <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+				<div class="alt-send-button">
+				  <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+				</div>
+			  </button>
+			</form>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <div class="direct-contact-container">
+				<ul class="contact-list">
+				  <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Porter Ranch, Ca</span></i></li>
+				  <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:elliotfayman@gmail.com" title="Send me an email">elliofayman@gmail.com</a></span></i></li>
+				</ul>
+				<hr>
+				<ul class="social-media-list">
+				  <a href="https://github.com/elliotfayman" target="_blank" class="contact-icon">
+					<i class="fa fa-github" aria-hidden="true"></i></a>
+				  <a href="https://www.linkedin.com/in/elliot-fayman-5974a2202/" target="_blank" class="contact-icon">
+					<i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				  <a href="https://www.instagram.com/elliot.f1/" target="_blank" class="contact-icon">
+					<i class="fa fa-instagram" aria-hidden="true"></i></a>
+				</ul>
+			  </div>
+		  </div>
+		</section>  
+		  </div>
+		</div>
+	
+	<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+	<script id="rendered-js" type="module">
+	import * as PIXI from "https://cdn.skypack.dev/pixi.js";
+	import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
+	import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
+	import hsl from "https://cdn.skypack.dev/hsl-to-hex";
+	import debounce from "https://cdn.skypack.dev/debounce";
+
+	// return a random number within a range
+	function random(min, max) {
+	  return Math.random() * (max - min) + min;
+	}
+
+	// map a number from 1 range to another
+	function map(n, start1, end1, start2, end2) {
+	  return (n - start1) / (end1 - start1) * (end2 - start2) + start2;
+	}
+
+	// Create a new simplex noise instance
+	const simplex = new SimplexNoise();
+
+	// ColorPalette class
+	class ColorPalette {
+	  constructor() {
+		this.setColors();
+		this.setCustomProperties();
+	  }
+
+	  setColors() {
+		// pick a random hue somewhere between 220 and 360
+		this.hue = ~~random(220, 360);
+		this.complimentaryHue1 = this.hue + 30;
+		this.complimentaryHue2 = this.hue + 60;
+		// define a fixed saturation and lightness
+		this.saturation = 95;
+		this.lightness = 50;
+
+		// define a base color
+		this.baseColor = hsl(this.hue, this.saturation, this.lightness);
+		// define a complimentary color, 30 degress away from the base
+		this.complimentaryColor1 = hsl(
+		this.complimentaryHue1,
+		this.saturation,
+		this.lightness);
+
+		// define a second complimentary color, 60 degrees away from the base
+		this.complimentaryColor2 = hsl(
+		this.complimentaryHue2,
+		this.saturation,
+		this.lightness);
+
+
+		// store the color choices in an array so that a random one can be picked later
+		this.colorChoices = [
+		this.baseColor,
+		this.complimentaryColor1,
+		this.complimentaryColor2];
+
+	  }
+
+	  randomColor() {
+		// pick a random color
+		return this.colorChoices[~~random(0, this.colorChoices.length)].replace(
+		"#",
+		"0x");
+
+	  }
+
+	  setCustomProperties() {
+		// set CSS custom properties so that the colors defined here can be used throughout the UI
+		document.documentElement.style.setProperty("--hue", this.hue);
+		document.documentElement.style.setProperty(
+		"--hue-complimentary1",
+		this.complimentaryHue1);
+
+		document.documentElement.style.setProperty(
+		"--hue-complimentary2",
+		this.complimentaryHue2);
+
+	  }}
+
+
+	// Orb class
+	class Orb {
+	  // Pixi takes hex colors as hexidecimal literals (0x rather than a string with '#')
+	  constructor(fill = 0x000000) {
+		// bounds = the area an orb is "allowed" to move within
+		this.bounds = this.setBounds();
+		// initialise the orb's { x, y } values to a random point within it's bounds
+		this.x = random(this.bounds["x"].min, this.bounds["x"].max);
+		this.y = random(this.bounds["y"].min, this.bounds["y"].max);
+
+		// how large the orb is vs it's original radius (this will modulate over time)
+		this.scale = 1;
+
+		// what color is the orb?
+		this.fill = fill;
+
+		// the original radius of the orb, set relative to window height
+		this.radius = random(window.innerHeight / 6, window.innerHeight / 3);
+
+		// starting points in "time" for the noise/self similar random values
+		this.xOff = random(0, 1000);
+		this.yOff = random(0, 1000);
+		// how quickly the noise/self similar random values step through time
+		this.inc = 0.002;
+
+		// PIXI.Graphics is used to draw 2d primitives (in this case a circle) to the canvas
+		this.graphics = new PIXI.Graphics();
+		this.graphics.alpha = 0.825;
+
+		// 250ms after the last window resize event, recalculate orb positions.
+		window.addEventListener(
+		"resize",
+		debounce(() => {
+		  this.bounds = this.setBounds();
+		}, 250));
+
+	  }
+
+	  setBounds() {
+		// how far from the { x, y } origin can each orb move
+		const maxDist =
+		window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
+		// the { x, y } origin for each orb (the bottom right of the screen)
+		const originX = window.innerWidth / 1.25;
+		const originY =
+		window.innerWidth < 1000 ?
+		window.innerHeight :
+		window.innerHeight / 1.375;
+
+		// allow each orb to move x distance away from it's x / y origin
+		return {
+		  x: {
+			min: originX - maxDist,
+			max: originX + maxDist },
+
+		  y: {
+			min: originY - maxDist,
+			max: originY + maxDist } };
+
+
+	  }
+
+	  update() {
+		// self similar "psuedo-random" or noise values at a given point in "time"
+		const xNoise = simplex.noise2D(this.xOff, this.xOff);
+		const yNoise = simplex.noise2D(this.yOff, this.yOff);
+		const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
+
+		// map the xNoise/yNoise values (between -1 and 1) to a point within the orb's bounds
+		this.x = map(xNoise, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
+		this.y = map(yNoise, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
+		// map scaleNoise (between -1 and 1) to a scale value somewhere between half of the orb's original size, and 100% of it's original size
+		this.scale = map(scaleNoise, -1, 1, 0.5, 1);
+
+		// step through "time"
+		this.xOff += this.inc;
+		this.yOff += this.inc;
+	  }
+
+	  render() {
+		// update the PIXI.Graphics position and scale values
+		this.graphics.x = this.x;
+		this.graphics.y = this.y;
+		this.graphics.scale.set(this.scale);
+
+		// clear anything currently drawn to graphics
+		this.graphics.clear();
+
+		// tell graphics to fill any shapes drawn after this with the orb's fill color
+		this.graphics.beginFill(this.fill);
+		// draw a circle at { 0, 0 } with it's size set by this.radius
+		this.graphics.drawCircle(0, 0, this.radius);
+		// let graphics know we won't be filling in any more shapes
+		this.graphics.endFill();
+	  }}
+
+
+	// Create PixiJS app
+	const app = new PIXI.Application({
+	  // render to <canvas class="orb-canvas"></canvas>
+	  view: document.querySelector(".orb-canvas"),
+	  // auto adjust size to fit the current window
+	  resizeTo: window,
+	  // transparent background, we will be creating a gradient background later using CSS
+	  transparent: true });
+
+
+	// Create colour palette
+	const colorPalette = new ColorPalette();
+
+	app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
+
+	// Create orbs
+	const orbs = [];
+
+	for (let i = 0; i < 10; i++) {if (window.CP.shouldStopExecution(0)) break;
+	  const orb = new Orb(colorPalette.randomColor());
+
+	  app.stage.addChild(orb.graphics);
+
+	  orbs.push(orb);
+	}
+
+	// Animate!
+	window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+	  app.ticker.add(() => {
+		orbs.forEach(orb => {
+		  orb.update();
+		  orb.render();
+		});
+	  });
+	} else {
+	  orbs.forEach(orb => {
+		orb.update();
+		orb.render();
+	  });
+	}
+	//# sourceURL=pen.js
+		</script>
+	</body>
 </html>
  
