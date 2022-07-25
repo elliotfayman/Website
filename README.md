@@ -26,7 +26,8 @@ Three sections containing essentail information. In last section, buttons with l
 ### Resume
 Contains pdf opener that reveals resume. 
 
-### Projects
+### Projects 
+Contains list of Project cards that each have a brief description of the project. Within the card, there is an additional button which, when pressed, presents a Modal with a more detailed description. The modal can contain a link to a repository which contains the project if one is available. 
 
 ### Contact Me
 Form that users can use to reach a user directly via email or other forms such as linkedin or github. To achieve this, GetForm was implimented. 
