@@ -21,7 +21,7 @@ Current plan is to use main page to reflect key information (i.e. key charecteri
 Outdated: Current plan is to have 4 button groups, each linking two different pages. On top of the button group, a rounded profile picture will be visible. Underneath the button group, symbol/buttons will link to essentail social media (i.e. github, linkedin, handshake, etc. also might add additional animations)
 
 ### About Me
-Three sections containing essentail information. In last section, buttons with links to other pages will appear. 
+Four sections containing essentail information. First section gives a brief introduction, second section lists most recent achievments, third section lists learned skills, and last section contains links to relevent pages.
 
 ### Resume
 Contains pdf opener that reveals resume. 
