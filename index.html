@@ -179,8 +179,14 @@
 	<script>
 		
 		var not_played = true;
+		var run = false;
 		function logAnyKey() { 
-			if (not_played && event.key=="Enter") {
+			try {
+				run = event.key=="Enter"
+			}
+			catch(error) {
+			}
+			if (not_played && (run || mobile)) {
 				for(let i = 0; i<19;i++){
 					asc(i);
 				}
@@ -234,7 +240,8 @@
 		}
 		
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-			setTimeout(logAnyKey(), 100);
+			setTimeout(logAnyKey, 4000);
+			mobile = true;
 		}
 		else {
 			document.addEventListener('keypress', logAnyKey);
