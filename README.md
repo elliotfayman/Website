@@ -3,6 +3,8 @@
 
 
 ### This is an in progress reporitory. Eventually this project will become my personal website for displaying important information about me!
+
+### This Website is now live at <a href="https://www.elliotfayman.com">elliotfayman.com<a> !!!
  --- 
  
 ## Pages
