@@ -6,7 +6,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 <link rel="apple-touch-icon" type="image/png" href="favicon.ico" />
 
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -456,7 +456,18 @@ window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)
 }
 //# sourceURL=pen.js
     </script>
+<script>
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+		}
+		else {
+			var h = document.getElementsByTagName('head').item(0);
+			var s = document.createElement("meta");
+			s.type = "text/html"; 
+			s.appendChild(document.createTextNode('<meta name="viewport" content="width=device-width, initial-scale=1">'));
+			h.appendChild(s);
 
+		}
+ </script>
   
 
 </body>
