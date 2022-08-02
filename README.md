@@ -32,3 +32,5 @@ Contains list of Project cards that each have a brief description of the project
 
 ### Contact Me
 Form that users can use to reach a user directly via email or other forms such as linkedin or github. To achieve this, GetForm was implimented. 
+
+### Mobile Exclusive features
