@@ -4,7 +4,6 @@
 
 ### This is an in progress reporitory. Eventually this project will become my personal website for displaying important information about me!
 
-### This Website is now live at <a href="https://www.elliotfayman.com">elliotfayman.com<a> !!!
  --- 
  
 ## Pages
@@ -34,3 +33,9 @@ Contains list of Project cards that each have a brief description of the project
 Form that users can use to reach a user directly via email or other forms such as linkedin or github. To achieve this, GetForm was implimented. 
 
 ### Mobile Exclusive features
+- Fix Animation Lag
+- Fix resolution squishing for mobile devise
+
+---
+
+### This Website is now live at <a href="https://www.elliotfayman.com">elliotfayman.com<a> !!!
