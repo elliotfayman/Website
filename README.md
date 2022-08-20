@@ -35,6 +35,7 @@ Form that users can use to reach a user directly via email or other forms such a
 ### Mobile Exclusive features
 - Fix Animation Lag
 - Fix resolution squishing for mobile devise
+- Add additional phone exclusive features to make website more interactive. 
 
 ---
 
