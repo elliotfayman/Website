@@ -1,5 +1,6 @@
 # Personal Website
 
+Website containing essentail information relating to me. 
 
  --- 
  
