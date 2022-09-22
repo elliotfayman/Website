@@ -1,7 +1,7 @@
 import * as PIXI from "https://cdn.skypack.dev/pixi";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
 //import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
-//import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@4.0.0";
+import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@4.0.0";
 import hsl from "https://cdn.skypack.dev/hsl-to-hex";
 import debounce from "https://cdn.skypack.dev/debounce";
 
@@ -16,7 +16,7 @@ function map(n, start1, end1, start2, end2) {
 }
 
 // Create a new simplex noise instance
-//const simplex = new SimplexNoise();
+const simplex = new SimplexNoise();
 
 // ColorPalette class
 class ColorPalette {
@@ -109,12 +109,14 @@ class Orb {
     this.graphics.alpha = 0.825;
 
     // 250ms after the last window resize event, recalculate orb positions.
+	/**
     window.addEventListener(
     "resize",
+	
     debounce(() => {
       this.bounds = this.setBounds();
     }, 250));
-
+	*/
   }
 
   setBounds() {
@@ -143,15 +145,15 @@ class Orb {
 
   update() {
     // self similar "psuedo-random" or noise values at a given point in "time"
-    //const xNoise = simplex.noise2D(this.xOff, this.xOff);
-    //const yNoise = simplex.noise2D(this.yOff, this.yOff);
-    //const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
+    const xNoise = simplex.noise2D(this.xOff, this.xOff);
+    const yNoise = simplex.noise2D(this.yOff, this.yOff);
+    const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
 
     // map the xNoise/yNoise values (between -1 and 1) to a point within the orb's bounds
-    this.x = map(2, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
-    this.y = map(3, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
+    this.x = map(xNoise, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
+    this.y = map(yNoise, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
     // map scaleNoise (between -1 and 1) to a scale value somewhere between half of the orb's original size, and 100% of it's original size
-    this.scale = map(3, -1, 1, 0.5, 1);
+    this.scale = map(scaleNoise, -1, 1, 0.5, 1);
 
     // step through "time"
     this.xOff += this.inc;
