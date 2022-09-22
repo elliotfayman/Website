@@ -1,4 +1,4 @@
-import * as PIXI from "https://cdn.skypack.dev/pixi@0.3.0";
+import * as PIXI from "https://cdn.skypack.dev/pixi";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
 //import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
 import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@4.0.0";
@@ -176,7 +176,7 @@ class Orb {
     this.graphics.endFill();
   }}
 
-
+/**
 // Create PixiJS app
 const app = new PIXI.Application({
   // render to <canvas class="orb-canvas"></canvas>
@@ -191,7 +191,7 @@ const app = new PIXI.Application({
 const colorPalette = new ColorPalette();
 
 app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
-
+**/
 // Create orbs
 const orbs = [];
 
@@ -217,4 +217,3 @@ window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)
     orb.render();
   });
 }
-//# sourceURL=pen.js
