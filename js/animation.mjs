@@ -1,9 +1,10 @@
+/**
 import * as PIXI from "https://cdn.skypack.dev/pixi";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
 //import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
 import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@4.0.0";
 import hsl from "https://cdn.skypack.dev/hsl-to-hex";
-//import debounce from "https://cdn.skypack.dev/debounce";
+import debounce from "https://cdn.skypack.dev/debounce";
 
 // return a random number within a range
 function random(min, max) {
@@ -109,14 +110,12 @@ class Orb {
     this.graphics.alpha = 0.825;
 
     // 250ms after the last window resize event, recalculate orb positions.
-	/**
     window.addEventListener(
     "resize",
 	
     debounce(() => {
       this.bounds = this.setBounds();
     }, 250));
-	*/
   }
 
   setBounds() {
@@ -218,3 +217,4 @@ window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)
     orb.render();
   });
 }
+**/
