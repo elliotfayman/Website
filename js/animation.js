@@ -1,4 +1,5 @@
-import * as PIXI from "https://cdn.skypack.dev/pixi.js";
+
+import * as PIXI from "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur";
 //import SimplexNoise from "https://cdn.skypack.dev/simplex-noise";
 import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.0";
@@ -111,10 +112,10 @@ class Orb {
     // 250ms after the last window resize event, recalculate orb positions.
     window.addEventListener(
     "resize",
+	
     debounce(() => {
       this.bounds = this.setBounds();
     }, 250));
-
   }
 
   setBounds() {
@@ -216,4 +217,3 @@ window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)
     orb.render();
   });
 }
-//# sourceURL=pen.js
