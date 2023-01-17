@@ -54,10 +54,10 @@ strong {
 
 .overlay {
 	
-  transform: translate(-25%);
   position:absolute;
+  transform: translate(-25%);
   top:25%;
-  left:25%;
+  left:30%;
   width: 100%;
   max-width: 1140px;
   max-height: 640px;
