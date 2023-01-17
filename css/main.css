@@ -34,6 +34,8 @@ body {
   color: var(--dark-color);
   background: var(--bg-gradient);
   padding: 10px;
+  
+  
 }
 
 .orb-canvas {
@@ -51,6 +53,9 @@ strong {
 }
 
 .overlay {
+  position:absolute;
+  top:25%;
+  left:25%;
   width: 100%;
   max-width: 1140px;
   max-height: 640px;

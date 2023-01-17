@@ -52,6 +52,8 @@ strong {
 }
 
 .overlay {
+  position:absolute;
+  left:25%;
   width: 100%;
   max-width: 1140px;
   max-height: 2040px;
