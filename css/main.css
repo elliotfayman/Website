@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  max-width: 1920px;
+  max-width: 3920px;
   min-height: 100vh;
   overscroll-behavior: none;
   place-items: center;
