@@ -28,7 +28,7 @@ html {
 
 body {
   max-width: 3920px;
-  min-height: 180vh;
+  min-height: 2200px;
   overscroll-behavior: none;
   place-items: center;
   font-family: var(--font-family);

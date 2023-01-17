@@ -28,7 +28,7 @@ html {
 
 body {
   max-width: 3920px;
-  min-height: 180vh;
+  min-height: 2160px;
   overscroll-behavior: none;
   place-items: center;
   font-family: var(--font-family);
@@ -57,7 +57,7 @@ strong {
   transform: translate(-50%);
   width: 100%;
   max-width: 1140px;
-  max-height: 2040px;
+  max-height: 1700px;
   padding: 8rem 6rem;
   display: flex;
   align-items: center;
