@@ -52,7 +52,6 @@ strong {
 }
 
 .overlay {
-	
   position:absolute;
   left:25%;
   transform: translate(-25%);
