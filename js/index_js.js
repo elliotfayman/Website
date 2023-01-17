@@ -43,7 +43,7 @@ var not_played = true;
 					console.log("1");
 					setTimeout(function() {
 						document.body.innerHTML = "";
-						window.location = "Main";}, 5000);
+						window.location = "Main";}, 1000);
 				}, 5000);
 
 				function transition() {
@@ -60,7 +60,7 @@ var not_played = true;
 		}
 		
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-			setTimeout(logAnyKey, 4000);
+			setTimeout(logAnyKey, 2000);
 			mobile = true;
 		}
 		else {
